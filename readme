@@ -15,4 +15,9 @@ git push
 
 http://localhost:6969/movies/getmovies - get all movies
  http://localhost:6969/movies/create - post - Add an movie
- http://localhost:6969/movies/:id - put - update an
+ payload sample: {
+    "title":"villu",
+    "desc": "villu description"
+}
+ http://localhost:6969/movies/:id - put - update a movie
+ http://localhost:6969/movies/:id - delete - delete a movie

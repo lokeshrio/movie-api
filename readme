@@ -12,3 +12,7 @@ provide movie api for a reactjs app
 git push - u orgin main
 git push
 
+
+http://localhost:6969/movies/getmovies - get all movies
+ http://localhost:6969/movies/create - post - Add an movie
+ http://localhost:6969/movies/:id - put - update an

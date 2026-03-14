@@ -5,13 +5,12 @@ export const getMovies = async (req, res) => {
     const movies = await Movie.find();
     res.json(movies);
   } catch (error) {
-    console.log("error in getMovies", error);
+    return res.status(400).json({ message: error.message });
   }
 };
 
 export const updateMovie = async (req, res) => {
   try {
-    console.log(req.body)
     const updateMovie = await Movie.findOneAndUpdate(
       { _id: req.params.id },
       { title: req.body.title, desc: req.body.desc },
@@ -21,14 +20,19 @@ export const updateMovie = async (req, res) => {
     );
     await res.status(200).json(updateMovie);
   } catch (error) {
-    console.log("error in updateMovie", error);
+       return res.status(400).json({ message: error.message });
+
   }
 };
 
-export const deleteMovies = async () => {
+export const deleteMovies = async (req, res) => {
   try {
+    const movieId = req.params.id;
+    await Movie.deleteOne({_id:movieId});
+    res.status(200).json({message: 'movie deleted'})
   } catch (error) {
-    console.log("error in deleteMovies", error);
+       return res.status(400).json({ message: error.message });
+
   }
 };
 
@@ -38,12 +42,9 @@ export const createMovie = async (req, res) => {
     desc: req.body.desc,
   });
   try {
-    console.log(req.body);
-
     const movie = await newMovie.save();
     return res.status(200).json(movie);
   } catch (error) {
-    console.log("error in createMovie", error);
     return res.status(400).json({ message: error.message });
   }
 };

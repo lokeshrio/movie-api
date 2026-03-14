@@ -1,0 +1,14 @@
+movieareas-api
+
+provide movie api for a reactjs app
+
+# important commands
+
+'npm install'
+'npm run server'
+'git init'
+'git add .'
+'git commit -m 'your msg''
+git push - u orgin main
+git push
+
